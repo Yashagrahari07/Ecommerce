@@ -1,12 +1,12 @@
 import React from 'react';
-import { Bell, Search, Filter, Download, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import { ShoppingBag, Search, Filter, Download, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 
-const Notifications = () => {
+const ProductListing = () => {
   return (
     <div className="p-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Notification Management</h1>
-        <p className="text-gray-600">Manage system notifications and alerts</p>
+        <h1 className="text-2xl font-bold text-gray-900">Product Listing Management</h1>
+        <p className="text-gray-600">Review and manage product listings</p>
       </div>
 
       {/* Stats Cards */}
@@ -14,16 +14,16 @@ const Notifications = () => {
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Total Notifications</p>
+              <p className="text-sm text-gray-600">Total Products</p>
               <p className="text-2xl font-bold text-gray-900">1,234</p>
             </div>
-            <Bell className="w-8 h-8 text-orange-500" />
+            <ShoppingBag className="w-8 h-8 text-orange-500" />
           </div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Unread</p>
+              <p className="text-sm text-gray-600">Pending Review</p>
               <p className="text-2xl font-bold text-gray-900">45</p>
             </div>
             <AlertCircle className="w-8 h-8 text-yellow-500" />
@@ -32,8 +32,8 @@ const Notifications = () => {
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Sent Today</p>
-              <p className="text-2xl font-bold text-gray-900">123</p>
+              <p className="text-sm text-gray-600">Approved Today</p>
+              <p className="text-2xl font-bold text-gray-900">23</p>
             </div>
             <CheckCircle className="w-8 h-8 text-green-500" />
           </div>
@@ -41,7 +41,7 @@ const Notifications = () => {
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Failed</p>
+              <p className="text-sm text-gray-600">Rejected Today</p>
               <p className="text-2xl font-bold text-gray-900">5</p>
             </div>
             <XCircle className="w-8 h-8 text-red-500" />
@@ -57,7 +57,7 @@ const Notifications = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search notifications..."
+                placeholder="Search products..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
@@ -75,56 +75,59 @@ const Notifications = () => {
         </div>
       </div>
 
-      {/* Notifications Table */}
+      {/* Products Table */}
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Recipient</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Channel</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Merchant</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {[1, 2, 3, 4, 5].map((notification) => (
-              <tr key={notification} className="hover:bg-gray-50">
+            {[1, 2, 3, 4, 5].map((product) => (
+              <tr key={product} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full
-                    ${notification % 3 === 0 ? 'bg-blue-100 text-blue-800' :
-                      notification % 3 === 1 ? 'bg-green-100 text-green-800' :
-                      'bg-purple-100 text-purple-800'}`}>
-                    {notification % 3 === 0 ? 'Alert' :
-                     notification % 3 === 1 ? 'Update' : 'Reminder'}
-                  </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">User {notification}</div>
-                  <div className="text-sm text-gray-500">user{notification}@example.com</div>
-                </td>
-                <td className="px-6 py-4">
-                  <div className="text-sm text-gray-900">
-                    {notification % 3 === 0 ? 'System maintenance scheduled' :
-                     notification % 3 === 1 ? 'Your order has been shipped' :
-                     'Payment reminder for invoice #123'}
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 flex-shrink-0">
+                      <img
+                        className="h-10 w-10 rounded-lg object-cover"
+                        src={`https://picsum.photos/seed/${product}/200`}
+                        alt=""
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <div className="text-sm font-medium text-gray-900">Product {product}</div>
+                      <div className="text-sm text-gray-500">SKU: PRD-{product}234</div>
+                    </div>
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {notification % 2 === 0 ? 'Email' : 'SMS'}
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">Merchant {product}</div>
+                  <div className="text-sm text-gray-500">ID: MER-{product}234</div>
                 </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {product === 1 ? 'Electronics' :
+                   product === 2 ? 'Clothing' :
+                   product === 3 ? 'Home & Garden' :
+                   product === 4 ? 'Sports' : 'Beauty'}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${(product * 50).toFixed(2)}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full
-                    ${notification % 3 === 0 ? 'bg-yellow-100 text-yellow-800' :
-                      notification % 3 === 1 ? 'bg-green-100 text-green-800' :
+                    ${product % 3 === 0 ? 'bg-yellow-100 text-yellow-800' :
+                      product % 3 === 1 ? 'bg-green-100 text-green-800' :
                       'bg-red-100 text-red-800'}`}>
-                    {notification % 3 === 0 ? 'Pending' :
-                     notification % 3 === 1 ? 'Sent' : 'Failed'}
+                    {product % 3 === 0 ? 'Pending' :
+                     product % 3 === 1 ? 'Approved' : 'Rejected'}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <button className="text-orange-600 hover:text-orange-900">View</button>
+                  <button className="text-orange-600 hover:text-orange-900">Review</button>
                 </td>
               </tr>
             ))}
@@ -135,4 +138,4 @@ const Notifications = () => {
   );
 };
 
-export default Notifications;
+export default ProductListing; 

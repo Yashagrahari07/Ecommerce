@@ -80,7 +80,7 @@ export const dashboardSections = [
       {
         title: "Customer",
         icon: MessageSquare,
-        description: "Oversee support tickets, response times, and resolution rates"
+        description: "Manage customer accounts and support requests"
       },
       {
         title: "User",
@@ -100,7 +100,7 @@ export const dashboardSections = [
         description: "Monitor payment processing and transaction security"
       },
       {
-        title: "Promotions",
+        title: "Promotion",
         icon: Percent,
         description: "Create and manage platform-wide promotions and offers"
       },
@@ -115,7 +115,7 @@ export const dashboardSections = [
         description: "Configure core platform settings and parameters"
       },
       {
-        title: "Notifications",
+        title: "Notification",
         icon: Bell,
         description: "Manage system notifications and alert thresholds"
       }
@@ -137,7 +137,7 @@ export const dashboardSections = [
         description: "Review and approve new product submissions"
       },
       {
-        title: "Refund and Return",
+        title: "Refund & Return",
         icon: ShoppingBag,
         description: "Process refund requests and manage return policies"
       },

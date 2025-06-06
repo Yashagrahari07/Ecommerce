@@ -91,6 +91,15 @@ import Support from './pages/business/Support';
 import { WishlistProvider } from './context/WishlistContext';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import Subscription from './pages/business/Subscription';
+import Orders from './pages/superadmin/Orders';
+import Customers from './pages/superadmin/Customers';
+import Transactions from './pages/superadmin/Transactions';
+import Promotions from './pages/superadmin/Promotions';
+import SystemConfig from './pages/superadmin/SystemConfig';
+import RBAC from './pages/superadmin/RBAC';
+import ProductListing from './pages/superadmin/ProductListing';
+import RefundReturn from './pages/superadmin/RefundReturn';
+import Notifications from './pages/superadmin/Notifications';
 
 // Lazy-loaded business dashboard pages
 const BusinessDashboard = lazy(() => import('./pages/business/Dashboard'));
@@ -360,42 +369,37 @@ function App() {
                       element={<Navigate to="/superadmin/dashboard" replace />}
                     />
                     <Route path="dashboard" element={<Dashboard />} />
-                    <Route
-                      path="user-activity"
-                      element={<UserActivity />}
-                    />
+                    <Route path="user-activity" element={<UserActivity />} />
                     <Route path="user" element={<UserManagement />} />
-
                     <Route path="content" element={<ContentModeration />} />
                     <Route path="product" element={<ProductMonitoring />} />
                     <Route path="site-traffic" element={<TrafficAnalytics />} />
-
                     <Route path="sales" element={<SalesReportPage />} />
                     <Route path="fraud-detection" element={<FraudDetection />} />
-                    <Route
-                      path="marketplace"
-                      element={<MarketplaceHealth />}
-                    />
-                    <Route
-                      path="merchant"
-                      element={<MerchantAnalytics />}
-                    />
-                    <Route
-                      path="platform"
-                      element={<PlatformPerformance />}
-                    />
-                    <Route
-                      path="merchant-manage"
-                      element={<MerchantManagement />}
-                    />
-                    <Route
-                      path="merchant-management/:id"
-                      element={<MerchantDetails />}
-                    />
+                    <Route path="marketplace" element={<MarketplaceHealth />} />
+                    <Route path="merchant" element={<MerchantAnalytics />} />
+                    <Route path="platform" element={<PlatformPerformance />} />
+                    <Route path="merchant-manage" element={<MerchantManagement />} />
+                    <Route path="merchant-management/:id" element={<MerchantDetails />} />
                     <Route path="categories" element={<Categories />} />
                     <Route path="brand-creation" element={<BrandCreation />} />
                     <Route path="attribute" element={<Attribute />} />
                     <Route path="homepage" element={<HomepageSettings />} />
+                    
+                    {/* New Management Routes */}
+                    <Route path="order" element={<Orders />} />
+                    <Route path="customer" element={<Customers />} />
+                    
+                    {/* New Operations Routes */}
+                    <Route path="transaction" element={<Transactions />} />
+                    <Route path="promotion" element={<Promotions />} />
+                    <Route path="system-config" element={<SystemConfig />} />
+                    <Route path="notification" element={<Notifications />} />
+                    
+                    {/* New Advanced Routes */}
+                    <Route path="role-based-access" element={<RBAC />} />
+                    <Route path="product-listing" element={<ProductListing />} />
+                    <Route path="refund-&-return" element={<RefundReturn />} />
                   </Route>
 
                   {/* Public Routes with header/footer */}

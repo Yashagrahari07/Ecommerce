@@ -1,12 +1,12 @@
 import React from 'react';
-import { FileBarChart2, Search, Filter, Download } from 'lucide-react';
+import { Users, Search, Filter, Download, Mail, Phone, MapPin } from 'lucide-react';
 
-const Orders = () => {
+const Customers = () => {
   return (
     <div className="p-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Order Management</h1>
-        <p className="text-gray-600">Manage and track all platform orders</p>
+        <h1 className="text-2xl font-bold text-gray-900">Customer Management</h1>
+        <p className="text-gray-600">Manage and track all platform customers</p>
       </div>
 
       {/* Stats Cards */}
@@ -14,37 +14,37 @@ const Orders = () => {
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Total Orders</p>
-              <p className="text-2xl font-bold text-gray-900">1,234</p>
+              <p className="text-sm text-gray-600">Total Customers</p>
+              <p className="text-2xl font-bold text-gray-900">5,678</p>
             </div>
-            <FileBarChart2 className="w-8 h-8 text-orange-500" />
+            <Users className="w-8 h-8 text-orange-500" />
           </div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Pending Orders</p>
-              <p className="text-2xl font-bold text-gray-900">45</p>
+              <p className="text-sm text-gray-600">Active Customers</p>
+              <p className="text-2xl font-bold text-gray-900">4,321</p>
             </div>
-            <FileBarChart2 className="w-8 h-8 text-yellow-500" />
+            <Users className="w-8 h-8 text-green-500" />
           </div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Completed Orders</p>
-              <p className="text-2xl font-bold text-gray-900">1,189</p>
+              <p className="text-sm text-gray-600">New This Month</p>
+              <p className="text-2xl font-bold text-gray-900">234</p>
             </div>
-            <FileBarChart2 className="w-8 h-8 text-green-500" />
+            <Users className="w-8 h-8 text-blue-500" />
           </div>
         </div>
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Total Revenue</p>
-              <p className="text-2xl font-bold text-gray-900">$45,678</p>
+              <p className="text-sm text-gray-600">Avg. Order Value</p>
+              <p className="text-2xl font-bold text-gray-900">$89.45</p>
             </div>
-            <FileBarChart2 className="w-8 h-8 text-blue-500" />
+            <Users className="w-8 h-8 text-purple-500" />
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@ const Orders = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search orders..."
+                placeholder="Search customers..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
@@ -75,31 +75,42 @@ const Orders = () => {
         </div>
       </div>
 
-      {/* Orders Table */}
+      {/* Customers Table */}
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Orders</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Spent</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {[1, 2, 3, 4, 5].map((order) => (
-              <tr key={order} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#ORD-{order}234</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">John Doe</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-03-{order}</td>
+            {[1, 2, 3, 4, 5].map((customer) => (
+              <tr key={customer} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    Completed
-                  </span>
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
+                      <Users className="h-6 w-6 text-gray-500" />
+                    </div>
+                    <div className="ml-4">
+                      <div className="text-sm font-medium text-gray-900">John Doe</div>
+                      <div className="text-sm text-gray-500">Customer #{customer}234</div>
+                    </div>
+                  </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${(order * 100).toFixed(2)}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">john.doe@example.com</div>
+                  <div className="text-sm text-gray-500">+1 234 567 890</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">New York, USA</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{customer * 2}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${(customer * 150).toFixed(2)}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   <button className="text-orange-600 hover:text-orange-900">View Details</button>
                 </td>
@@ -112,4 +123,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Customers; 
