@@ -56,6 +56,7 @@ interface ProductVariantsProps {
     };
   };
   categoryId: number | null;
+  productSku: string;
 }
 
 interface AddVariantModalProps {
@@ -68,6 +69,7 @@ interface AddVariantModalProps {
     attributes: Record<number, string | string[]>;
   }) => void;
   categoryId: number | null;
+  productSku: string;
 }
 
 const AddVariantModal: React.FC<AddVariantModalProps> = ({
@@ -75,6 +77,7 @@ const AddVariantModal: React.FC<AddVariantModalProps> = ({
   onClose,
   onAdd,
   categoryId,
+  productSku,
 }) => {
   const [sku, setSku] = useState('');
   const [price, setPrice] = useState('');
@@ -89,6 +92,24 @@ const AddVariantModal: React.FC<AddVariantModalProps> = ({
       fetchAttributes(categoryId);
     }
   }, [categoryId]);
+
+  useEffect(() => {
+    if (productSku) {
+      const attributeSuffix = Object.entries(selectedAttributes)
+        .map(([_, value]) => {
+          if (typeof value === 'string') {
+            return value.charAt(0).toUpperCase();
+          } else if (Array.isArray(value) && value.length > 0) {
+            return value[0].charAt(0).toUpperCase();
+          }
+          return '';
+        })
+        .filter(Boolean)
+        .join('');
+      
+      setSku(`${productSku}${attributeSuffix}`);
+    }
+  }, [selectedAttributes, productSku]);
 
   const fetchAttributes = async (categoryId: number) => {
     try {
@@ -186,15 +207,14 @@ const AddVariantModal: React.FC<AddVariantModalProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label htmlFor="sku" className="block text-sm font-medium text-gray-700">
-                SKU
+                Variant SKU
               </label>
               <input
                 type="text"
                 id="sku"
                 value={sku}
-                onChange={(e) => setSku(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
-                required
+                readOnly
+                className="mt-1 block w-full rounded-md border-gray-300 bg-gray-50 shadow-sm sm:text-sm"
               />
             </div>
 
@@ -334,6 +354,7 @@ const ProductVariants: React.FC<ProductVariantsProps> = ({
   onVariantsChange,
   errors = {},
   categoryId,
+  productSku,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -929,6 +950,7 @@ const ProductVariants: React.FC<ProductVariantsProps> = ({
         onClose={() => setIsModalOpen(false)}
         onAdd={handleAddVariant}
         categoryId={categoryId}
+        productSku={productSku}
       />
     </div>
   );

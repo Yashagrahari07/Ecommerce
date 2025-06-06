@@ -22,7 +22,8 @@ interface Variant {
   sku: string;
   price: string;
   stock: string;
-  attributes: VariantAttribute[];
+  attributes: Record<number, string | string[]>;
+  media?: Array<{ media_id: number; media_url: string; media_type: string; is_primary: boolean; display_order: number; }>;
 }
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -558,6 +559,7 @@ const CoreProductInfo: React.FC<CoreProductInfoProps> = ({
                 onVariantsChange={handleVariantsChange}
                 errors={variantErrors}
                 categoryId={categoryId}
+                productSku={sku}
               />
             </div>
           </div>
