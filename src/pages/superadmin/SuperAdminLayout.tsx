@@ -26,32 +26,32 @@ import SuperadminHeader from "./SuperadminHeader";
 // Dashboard sections organized into categories
 export const dashboardSections = [
   {
-    category: "Analytics & Reports",
+    category: "Analytics",
     color: "blue",
     icon: BarChart3,
     items: [
       {
-        title: "User Activity Overview",
+        title: "User Activity",
         icon: ActivitySquare,
         description: "Monitor user engagement, session data, and activity patterns"
       },
       {
-        title: "Site Traffic Analytics",
+        title: "Site Traffic",
         icon: BarChart3,
         description: "Analyze visitor traffic, sources, and behavior patterns"
       },
       {
-        title: "Sales Reports",
+        title: "Sales",
         icon: FileBarChart2,
         description: "Review comprehensive sales data, trends, and projections"
       },
       {
-        title: "Merchant Analytics",
+        title: "Merchant",
         icon: BarChart3,
         description: "Track merchant performance and growth metrics"
       },
       {
-        title: "Platform Performance",
+        title: "Platform",
         icon: ActivitySquare,
         description: "Monitor system health, response times, and resource usage"
       }
@@ -63,81 +63,81 @@ export const dashboardSections = [
     icon: UserCog,
     items: [
       {
-        title: "Merchant Management",
+        title: "Merchant Manage",
         icon: UserCog,
         description: "Review and manage merchant accounts and applications"
       },
       {
-        title: "Product Monitoring",
+        title: "Product",
         icon: ShoppingBag,
         description: "Track product listings, categories, and inventory status"
       },
       {
-        title: "Order Management",
+        title: "Order",
         icon: FileBarChart2,
         description: "Process orders, track fulfillment, and manage exceptions"
       },
       {
-        title: "Customer Support Management",
+        title: "Customer",
         icon: MessageSquare,
         description: "Oversee support tickets, response times, and resolution rates"
       },
       {
-        title: "User Management",
+        title: "User",
         icon: Users,
         description: "Manage user accounts, permissions, and access controls"
       }
     ]
   },
   {
-    category: "Operations & Security",
+    category: "Operations",
     color: "amber",
     icon: ShieldCheck,
     items: [
       {
-        title: "Payment and Transaction Monitoring",
+        title: "Transaction",
         icon: ShieldCheck,
         description: "Monitor payment processing and transaction security"
       },
       {
-        title: "Promotions and Discounts Management",
+        title: "Promotions",
         icon: Percent,
         description: "Create and manage platform-wide promotions and offers"
       },
       {
-        title: "Content Moderation",
+        title: "Content",
         icon: AlertTriangle,
         description: "Review flagged content and enforce community guidelines"
       },
       {
-        title: "System Settings Configuration",
+        title: "System Config",
         icon: Settings,
         description: "Configure core platform settings and parameters"
       },
       {
-        title: "Notifications and Alerts Management",
+        title: "Notifications",
         icon: Bell,
         description: "Manage system notifications and alert thresholds"
       }
     ]
   },
   {
-    category: "Advanced Controls",
+    category: "Advanced",
     color: "purple",
     icon: ShieldAlert,
     items: [
       {
-        title: "Role-Based Access Control (RBAC)",
+        title: "Role-Based Access",
         icon: ShieldAlert,
         description: "Configure admin roles, permissions, and access levels"
       },
       {
-        title: "Product Listing Approval",
+        title: "Product Listing",
         icon: ShoppingBag,
         description: "Review and approve new product submissions"
       },
       {
-        title: "Refund and Return Management",
+        title: "Refund and Return",
         icon: ShoppingBag,
         description: "Process refund requests and manage return policies"
       },
@@ -147,7 +147,7 @@ export const dashboardSections = [
         description: "Monitor and address suspicious activities and platform health"
       },
       {
-        title: "Marketplace Health",
+        title: "Marketplace",
         icon: ShieldCheck,
         description: "Monitor and address platform health"
       }
@@ -177,7 +177,7 @@ export const catalogSection = {
       description: "Manage product attributes and specifications"
     },
     {
-      title: "Homepage Settings",
+      title: "Homepage",
       icon: Home,
       description: "Manage categories displayed on homepage"
     }
@@ -440,7 +440,7 @@ const SuperAdminLayout = () => {
                   `}
                 >
                   <FolderOpen className={`w-5 h-5 ${isCategoryActive("Catalog Management") ? '' : 'text-gray-500'} mr-3`} />
-                  <span className="font-medium">Catalog Management</span>
+                  <span className="font-medium">Catalog</span>
                   <ChevronRight className={`w-4 h-4 ml-auto transform transition-transform duration-200 ${expandedCategories.includes("Catalog Management") ? 'rotate-90' : ''}`} />
                 </button>
                 

@@ -361,31 +361,31 @@ function App() {
                     />
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route
-                      path="user-activity-overview"
+                      path="user-activity"
                       element={<UserActivity />}
                     />
-                    <Route path="user-management" element={<UserManagement />} />
+                    <Route path="user" element={<UserManagement />} />
 
-                    <Route path="content-moderation" element={<ContentModeration />} />
-                    <Route path="product-monitoring" element={<ProductMonitoring />} />
-                    <Route path="site-traffic-analytics" element={<TrafficAnalytics />} />
+                    <Route path="content" element={<ContentModeration />} />
+                    <Route path="product" element={<ProductMonitoring />} />
+                    <Route path="site-traffic" element={<TrafficAnalytics />} />
 
-                    <Route path="sales-reports" element={<SalesReportPage />} />
+                    <Route path="sales" element={<SalesReportPage />} />
                     <Route path="fraud-detection" element={<FraudDetection />} />
                     <Route
-                      path="marketplace-health"
+                      path="marketplace"
                       element={<MarketplaceHealth />}
                     />
                     <Route
-                      path="merchant-analytics"
+                      path="merchant"
                       element={<MerchantAnalytics />}
                     />
                     <Route
-                      path="platform-performance"
+                      path="platform"
                       element={<PlatformPerformance />}
                     />
                     <Route
-                      path="merchant-management"
+                      path="merchant-manage"
                       element={<MerchantManagement />}
                     />
                     <Route
@@ -395,7 +395,7 @@ function App() {
                     <Route path="categories" element={<Categories />} />
                     <Route path="brand-creation" element={<BrandCreation />} />
                     <Route path="attribute" element={<Attribute />} />
-                    <Route path="homepage-settings" element={<HomepageSettings />} />
+                    <Route path="homepage" element={<HomepageSettings />} />
                   </Route>
 
                   {/* Public Routes with header/footer */}
